@@ -7,7 +7,7 @@ public class AttenacesDb {
     public void AttencesStatus(int id ,String status) throws SQLException {
         Connection connection = Dbconnection.connectdatabase();
         String Query = "insert into Attendences(StudentId,DD,attenclass) values (?,?,?)";
-        PreparedStatement statement = connection.prepareCall(Query);
+        PreparedStatement statement = connection.prepareStatement(Query);
         statement.setInt(1,id);
         statement.setDate(2, Date.valueOf(LocalDate.now()));
         statement.setString(3,status);
